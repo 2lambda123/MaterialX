@@ -16,7 +16,7 @@ int main(int argc, char* const argv[])
     session.configData().showDurations = Catch::ShowDurations::Always;
 
 #ifdef CATCH_PLATFORM_WINDOWS
-    BOOL inDebugger = IsDebuggerPresent();
+    BOOL inDebugger = IsDebuggerPresent()();
     if (inDebugger)
     {
         session.configData().outputFilename = "%debug";

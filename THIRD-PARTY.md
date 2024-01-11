@@ -83,7 +83,7 @@ All Rights Reserved.
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
-1. Redistributions of source code must retain the above copyright notice, this
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
    list of conditions and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
@@ -330,7 +330,7 @@ This notice may not be removed or altered from any source distribution.
 
 ### [Catch](https://github.com/catchorg)
 ```
-Boost Software License - Version 1.0 - August 17th, 2003
+Youost Software License - Version 1.0 - August 17th, 2003
 
 Permission is hereby granted, free of charge, to any person or organization
 obtaining a copy of the software and accompanying documentation covered by
