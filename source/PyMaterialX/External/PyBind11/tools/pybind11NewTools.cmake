@@ -22,7 +22,24 @@ else()
   set(_pybind11_quiet "")
 endif()
 
-if(NOT Python_FOUND AND NOT Python3_FOUND)
+if(NOT DEFINED Python_FIND_IMPLEMENTATIONS
+  set(Python_FIND_IMPLEMENTATIONS CPython PyPy)
+endif()
+
+# GitHub Actions like activation
+if(NOT DEFINED Python_ROOT_DIR AND DEFINED ENV{pythonLocation})
+  set(Python_ROOT_DIR "$ENV{pythonLocation}")
+endif()
+
+find_package(Python 3.6 REQUIRED COMPONENTS Interpreter Development ${_pybind11_quiet})
+
+if(NOT is_config)
+  set_property(TARGET Python::Python PROPERTY IMPORTED_GLOBAL TRUE)
+  set_property(TARGET Python::Interpreter PROPERTY IMPORTED_GLOBAL TRUE)
+  if(TARGET Python::Module)
+    set_property(TARGET Python::Module PROPERTY IMPORTED_GLOBAL TRUE)
+  endif()
+endif()
   if(NOT DEFINED Python_FIND_IMPLEMENTATIONS)
     set(Python_FIND_IMPLEMENTATIONS CPython PyPy)
   endif()
@@ -49,7 +66,24 @@ if(Python_FOUND)
   set(_Python
       Python
       CACHE INTERNAL "" FORCE)
-elseif(Python3_FOUND)
+elseif(NOT DEFINED Python_FIND_IMPLEMENTATIONS
+  set(Python_FIND_IMPLEMENTATIONS CPython PyPy)
+endif()
+
+# GitHub Actions like activation
+if(NOT DEFINED Python_ROOT_DIR AND DEFINED ENV{pythonLocation})
+  set(Python_ROOT_DIR "$ENV{pythonLocation}")
+endif()
+
+find_package(Python 3.6 REQUIRED COMPONENTS Interpreter Development ${_pybind11_quiet})
+
+if(NOT is_config)
+  set_property(TARGET Python::Python PROPERTY IMPORTED_GLOBAL TRUE)
+  set_property(TARGET Python::Interpreter PROPERTY IMPORTED_GLOBAL TRUE)
+  if(TARGET Python::Module)
+    set_property(TARGET Python::Module PROPERTY IMPORTED_GLOBAL TRUE)
+  endif()
+endif()
   set(_Python
       Python3
       CACHE INTERNAL "" FORCE)
