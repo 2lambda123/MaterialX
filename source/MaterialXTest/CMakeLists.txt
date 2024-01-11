@@ -1,4 +1,4 @@
-file(GLOB materialx_source "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+file(GLOB materialx_source "${CMAKE_SOURCE_DIR}/*.cpp")
 file(GLOB materialx_headers "${CMAKE_CURRENT_SOURCE_DIR}/*.h*")
 list(APPEND materialx_headers "${CMAKE_CURRENT_SOURCE_DIR}/External/Catch/catch.hpp")
 
@@ -93,7 +93,7 @@ endif()
 
 add_custom_command(TARGET MaterialXTest POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../libraries ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/libraries)
+    ${CMAKE_SOURCE_DIR}/../../libraries ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/libraries)
 if(MATERIALX_OSL_LEGACY_CLOSURES)
     add_custom_command(TARGET MaterialXTest POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E rename
@@ -107,7 +107,7 @@ endif()
 
 add_custom_command(TARGET MaterialXTest POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../resources ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources)
+    ${CMAKE_SOURCE_DIR}/../../resources ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources)
 
 add_custom_command(TARGET MaterialXTest POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
