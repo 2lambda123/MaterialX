@@ -27,6 +27,7 @@ function(add_tests _sources)
                              ENVIRONMENT "PATH=${TESTPATH}")
       endif()
     endforeach()
+    # Add a new test case or configuration here
   endforeach()
 endfunction()
 
